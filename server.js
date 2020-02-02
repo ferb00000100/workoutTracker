@@ -18,11 +18,14 @@ app.use(function (req, res) {
 	res.json(err);
 })
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
-	useNewUrlParser: true
-});
-const db = mongoose.connection
-db.on('error', console.error.bind(console, 'connection error:'));
+let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+mongoose.connect(MONGODB_URI);
+
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
+// 	useNewUrlParser: true
+// });
+// const db = mongoose.connection
+// db.on('error', console.error.bind(console, 'connection error:'));
 
 app.listen(app.get('port'),function() {
 	console.log('Now listening on port:' +  app.get('port'));
