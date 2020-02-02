@@ -13,7 +13,7 @@ module.exports = function (router) {
 	});
 
 	router.post("/api/workouts", function (req, res) {
-		console.log('you are at /api/workouts');
+		// console.log('you are at /api/workouts');
 		Workout.create({})
 			.then(data => res.json(data))
 			.catch(err => {
@@ -23,7 +23,7 @@ module.exports = function (router) {
 	});
 
 	router.put("/api/workouts/:id", ({ body, params }, res) => {
-		console.log('you are at /api/workouts/:id');
+		// console.log('you are at /api/workouts/:id');
 		Workout.findByIdAndUpdate(
 			params.id,
 			{ $push: { exercises: body } },

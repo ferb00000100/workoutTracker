@@ -9,7 +9,6 @@ module.exports = function (router) {
 
 
 	router.get("/api/workouts/range", function(req, res){
-		console.log(req.body);
 		Workout.find({}, (error, results) => {
 			if (error) {
 				console.log(error);

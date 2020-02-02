@@ -33,6 +33,7 @@
         </div>
         <div class="new-workout">
           <h3>Create Your First Workout</h3>
+          <a id="newWorkout-btn" href="/exercise?" class="huge ui blue button">New Workout</a>
         </div>
       </div>
     </div>
@@ -44,6 +45,15 @@
   <script src="/api.js"></script>
   <script src="/workout.js"></script>
   <script src="/index.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("service-worker.js").then(reg => {
+          console.log("We found your service worker file!", reg);
+        });
+      });
+    }
+  </script>
 </body>
 
 </html>
